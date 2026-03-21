@@ -129,7 +129,7 @@ const getDashboard = asyncHandler(async (req, res) => {
  * @access  Admin
  */
 const getRevenue = asyncHandler(async (req, res) => {
-  const { from, to, groupBy = 'day' = req.query;
+  const { from, to, groupBy = 'day' } = req.query;
   
   const startDate = from ? new Date(from) : new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
   const endDate = to ? new Date(to) : new Date();

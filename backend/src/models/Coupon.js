@@ -19,7 +19,7 @@ const applicableItemSchema = new mongoose.Schema({
   id: { 
     type: mongoose.Schema.Types.ObjectId, 
     required: true,
-    refPath: 'applicableItems.type === 'CATEGORY' ? 'Category' : 'Product'
+    refPath: "applicableItems.type === 'CATEGORY' ? 'Category' : 'Product'"
   },
 });
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const publicController = require('../../controllers/publicController');
+const publicController = require('../controllers/publicController');
 
 // Public endpoints - no authentication required
 

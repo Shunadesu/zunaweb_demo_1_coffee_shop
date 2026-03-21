@@ -10,6 +10,7 @@ const adminUserRoutes = require('./admin/user.routes');
 const adminCouponRoutes = require('./admin/coupon.routes');
 const adminBlogRoutes = require('./admin/blog.routes');
 const adminStatsRoutes = require('./admin/stats.routes');
+const adminUploadRoutes = require('./admin/upload.routes');
 const userProfileRoutes = require('./user/profile.routes');
 const userOrderRoutes = require('./user/order.routes');
 const userMembershipRoutes = require('./user/membership.routes');
@@ -30,6 +31,7 @@ router.use('/admin/users', adminUserRoutes);
 router.use('/admin/coupons', adminCouponRoutes);
 router.use('/admin/blog', adminBlogRoutes);
 router.use('/admin/stats', adminStatsRoutes);
+router.use('/admin/upload', adminUploadRoutes);
 
 // User routes (protected by auth middleware)
 router.use('/user/profile', userProfileRoutes);
