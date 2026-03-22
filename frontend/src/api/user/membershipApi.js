@@ -1,4 +1,4 @@
-import axiosClient from './axiosClient';
+import axiosClient from '../axiosClient';
 
 export const userMembershipApi = {
   getMembership: () => axiosClient.get('/user/membership'),

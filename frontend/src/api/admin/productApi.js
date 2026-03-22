@@ -1,4 +1,4 @@
-import axiosClient from './axiosClient';
+import axiosClient from '../axiosClient';
 
 export const adminProductApi = {
   getAll: (params) => axiosClient.get('/admin/products', { params }),

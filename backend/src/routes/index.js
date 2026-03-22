@@ -16,6 +16,8 @@ const userOrderRoutes = require('./user/order.routes');
 const userMembershipRoutes = require('./user/membership.routes');
 const userCouponRoutes = require('./user/coupon.routes');
 const publicRoutes = require('./public.routes');
+const reviewRoutes = require('./review.routes');
+const wishlistRoutes = require('./wishlist.routes');
 
 // Use routes
 router.use('/auth', authRoutes);
@@ -38,5 +40,11 @@ router.use('/user/profile', userProfileRoutes);
 router.use('/user/orders', userOrderRoutes);
 router.use('/user/membership', userMembershipRoutes);
 router.use('/user/coupons', userCouponRoutes);
+
+// Review routes
+router.use('/reviews', reviewRoutes);
+
+// Wishlist routes
+router.use('/user/wishlist', wishlistRoutes);
 
 module.exports = router;

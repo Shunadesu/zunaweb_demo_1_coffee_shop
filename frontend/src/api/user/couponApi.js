@@ -1,4 +1,4 @@
-import axiosClient from './axiosClient';
+import axiosClient from '../axiosClient';
 
 export const userCouponApi = {
   getMyCoupons: (params) => axiosClient.get('/user/coupons', { params }),

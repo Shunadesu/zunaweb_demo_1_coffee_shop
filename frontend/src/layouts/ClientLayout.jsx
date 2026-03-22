@@ -1,9 +1,10 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiMenu, FiX, FiShoppingBag, FiUser, FiSearch } from 'react-icons/fi';
+import { FiMenu, FiX, FiShoppingBag, FiUser, FiSearch, FiHeart } from 'react-icons/fi';
 import { useState } from 'react';
 import { useAuthStore } from '@/stores/authStore';
 import { useCartStore } from '@/stores/cartStore';
+import BottomNav from '@/components/layout/BottomNav';
 
 const ClientLayout = () => {
   const location = useLocation();
@@ -108,6 +109,14 @@ const ClientLayout = () => {
                       >
                         Thành viên
                       </Link>
+                      <Link
+                        to="/wishlist"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                        onClick={() => setUserMenuOpen(false)}
+                      >
+                        <FiHeart className="w-4 h-4 text-red-500" />
+                        Yêu thích
+                      </Link>
                       <hr className="my-2" />
                       <button
                         onClick={() => {
@@ -180,6 +189,9 @@ const ClientLayout = () => {
       <main>
         <Outlet />
       </main>
+
+      {/* Bottom Navigation for Mobile */}
+      <BottomNav />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">

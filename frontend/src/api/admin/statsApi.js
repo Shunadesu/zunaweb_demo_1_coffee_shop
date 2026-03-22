@@ -1,4 +1,4 @@
-import axiosClient from './axiosClient';
+import axiosClient from '../axiosClient';
 
 export const adminStatsApi = {
   getDashboard: (params) => axiosClient.get('/admin/stats/dashboard', { params }),

@@ -23,6 +23,7 @@ import Membership from '@/pages/client/Membership';
 import Coupons from '@/pages/client/Coupons';
 import BlogList from '@/pages/client/BlogList';
 import BlogDetail from '@/pages/client/BlogDetail';
+import Wishlist from '@/pages/client/Wishlist';
 
 // Admin Pages
 import Dashboard from '@/pages/admin/Dashboard';
@@ -39,6 +40,7 @@ import AdminCouponForm from '@/pages/admin/coupons/CouponForm';
 import AdminBlog from '@/pages/admin/blog/BlogList';
 import AdminBlogForm from '@/pages/admin/blog/BlogForm';
 import AdminSettings from '@/pages/admin/Settings';
+import AdminReviews from '@/pages/admin/reviews/ReviewList';
 
 // Protected Routes
 import ProtectedRoute from '@/components/ProtectedRoute';
@@ -92,6 +94,7 @@ function App() {
               <Route path="/orders" element={<OrderHistory />} />
               <Route path="/membership" element={<Membership />} />
               <Route path="/coupons" element={<Coupons />} />
+              <Route path="/wishlist" element={<Wishlist />} />
             </Route>
           </Route>
 
@@ -115,6 +118,7 @@ function App() {
               <Route path="blog" element={<AdminBlog />} />
               <Route path="blog/new" element={<AdminBlogForm />} />
               <Route path="blog/:id/edit" element={<AdminBlogForm />} />
+              <Route path="reviews" element={<AdminReviews />} />
               <Route path="settings" element={<AdminSettings />} />
             </Route>
           </Route>

@@ -3,6 +3,21 @@ import { Link, useParams } from 'react-router-dom';
 import { FiGrid, FiList, FiSearch, FiFilter, FiStar } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 import { useProductStore } from '@/stores/productStore';
+import SEO, { BreadcrumbSchema } from '@/components/SEO';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import { ProductGridSkeleton } from '@/components/ui/Skeleton';
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.05 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
 
 const Menu = () => {
   const { categorySlug } = useParams();
@@ -40,16 +55,48 @@ const Menu = () => {
     setFilters({ search: searchValue });
   };
 
+  const selectedCategory = categorySlug 
+    ? categories.find(c => c.slug === categorySlug) 
+    : null;
+
+  const gridClassName = viewMode === 'grid'
+    ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'
+    : 'space-y-4';
+
   return (
-    <div className="py-8">
-      <div className="container-custom">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="section-title mb-2">Menu</h1>
-          <p className="text-gray-600">
-            Khám phá các loại thức uống đa dạng của chúng tôi
-          </p>
-        </div>
+    <>
+      {/* SEO */}
+      <SEO 
+        title={selectedCategory ? selectedCategory.name : 'Menu'}
+        description={selectedCategory?.description || 'Khám phá các loại thức uống đa dạng của Coffee Shop - Cà phê, trà, sinh tố và nhiều hơn nữa.'}
+        url={categorySlug ? `/menu/${categorySlug}` : '/menu'}
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Trang chủ', url: '/' },
+          { name: 'Menu', url: '/menu' },
+          ...(selectedCategory ? [{ name: selectedCategory.name }] : [])
+        ]} 
+      />
+
+      <div className="py-8">
+        <div className="container-custom">
+          {/* Header */}
+          <div className="mb-6">
+            <Breadcrumb 
+              items={[
+                { label: 'Trang chủ', href: '/' },
+                { label: 'Menu', href: '/menu' },
+                ...(selectedCategory ? [{ label: selectedCategory.name }] : [])
+              ]} 
+            />
+            <h1 className="section-title mb-2 mt-4">
+              {selectedCategory ? selectedCategory.name : 'Menu'}
+            </h1>
+            <p className="text-gray-600">
+              {selectedCategory?.description || 'Khám phá các loại thức uống đa dạng của chúng tôi'}
+            </p>
+          </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar Filters */}
@@ -148,9 +195,7 @@ const Menu = () => {
 
             {/* Products Grid/List */}
             {isLoading ? (
-              <div className="flex justify-center py-12">
-                <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-600 border-t-transparent"></div>
-              </div>
+              <ProductGridSkeleton count={9} />
             ) : products.length === 0 ? (
               <div className="text-center py-12">
                 <p className="text-gray-500">Không tìm thấy sản phẩm nào</p>
@@ -158,24 +203,15 @@ const Menu = () => {
             ) : (
               <>
                 <motion.div
-                  variants={viewMode === 'grid' 
-                    ? { show: { transition: { staggerChildren: 0.05 } } 
-                    : {}}
+                  variants={containerVariants}
                   initial="hidden"
                   animate="show"
-                  className={
-                    viewMode === 'grid'
-                      ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'
-                      : 'space-y-4'
-                  }
+                  className={gridClassName}
                 >
                   {products.map((product) => (
                     <motion.div
                       key={product._id}
-                      variants={viewMode === 'grid' ? {
-                        hidden: { opacity: 0, y: 20 },
-                        show: { opacity: 1, y: 0 }
-                      } : {}}
+                      variants={itemVariants}
                     >
                       <Link
                         to={`/product/${product.slug}`}
@@ -274,7 +310,7 @@ const Menu = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

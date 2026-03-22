@@ -14,6 +14,7 @@ import {
   FiChevronLeft,
   FiChevronRight,
   FiBell,
+  FiStar,
 } from 'react-icons/fi';
 import { useAuthStore } from '@/stores/authStore';
 import { useUIStore } from '@/stores/uiStore';
@@ -31,6 +32,7 @@ const AdminLayout = () => {
     { icon: FiGrid, label: 'Danh mục', path: '/admin/categories' },
     { icon: FiUsers, label: 'Khách hàng', path: '/admin/users' },
     { icon: FiGift, label: 'Coupon', path: '/admin/coupons' },
+    { icon: FiStar, label: 'Đánh giá', path: '/admin/reviews' },
     { icon: FiFileText, label: 'Blog', path: '/admin/blog' },
     { icon: FiSettings, label: 'Cài đặt', path: '/admin/settings' },
   ];
