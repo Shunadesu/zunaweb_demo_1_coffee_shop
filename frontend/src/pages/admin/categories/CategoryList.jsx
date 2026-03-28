@@ -1,7 +1,7 @@
 // Categories Page
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiPlus, FiEdit, FiTrash2, FiGripVertical } from 'react-icons/fi';
+import { FiPlus, FiEdit, FiTrash2, FiMoreVertical } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { adminCategoryApi } from '@/api/admin/categoryApi';
 
@@ -82,7 +82,7 @@ const CategoryList = () => {
               {categories.map((category) => (
                 <tr key={category._id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
-                    <FiGripVertical className="w-4 h-4 text-gray-400 cursor-move" />
+                    <FiMoreVertical className="w-4 h-4 text-gray-400" />
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">

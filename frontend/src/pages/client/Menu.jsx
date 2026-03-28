@@ -64,7 +64,7 @@ const Menu = () => {
     : 'space-y-4';
 
   return (
-    <>
+    <div>
       {/* SEO */}
       <SEO 
         title={selectedCategory ? selectedCategory.name : 'Menu'}
@@ -305,12 +305,13 @@ const Menu = () => {
                     </div>
                   </div>
                 )}
-              </>
-            )}
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

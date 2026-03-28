@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Layouts
 import ClientLayout from '@/layouts/ClientLayout';
@@ -66,6 +67,7 @@ function App() {
   }, [fetchProfile]);
 
   return (
+    <HelmetProvider>
     <BrowserRouter>
       <AnimatePresence mode="wait">
         <Routes>
@@ -135,6 +137,7 @@ function App() {
         ))}
       </div>
     </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

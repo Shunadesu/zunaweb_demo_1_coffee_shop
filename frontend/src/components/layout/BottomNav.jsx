@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiHome, FiCoffee, FiShoppingCart, FiClipboardList, FiUser } from 'react-icons/fi';
+import { FiHome, FiCoffee, FiShoppingCart, FiList, FiUser } from 'react-icons/fi';
 import { useCartStore } from '@/stores/cartStore';
 import { useAuthStore } from '@/stores/authStore';
 
@@ -33,7 +33,7 @@ const BottomNav = () => {
     },
     { 
       path: '/orders', 
-      icon: FiClipboardList, 
+      icon: FiList, 
       label: 'Đơn hàng',
       show: isAuthenticated
     },

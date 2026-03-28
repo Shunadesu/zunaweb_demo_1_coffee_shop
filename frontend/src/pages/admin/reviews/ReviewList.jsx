@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiStar, FiCheck, FiX, FiEye, FiTrash2, FiReply, FiFilter, FiAlertCircle } from 'react-icons/fi';
+import { FiStar, FiCheck, FiX, FiEye, FiTrash2, FiMessageCircle, FiFilter, FiAlertCircle } from 'react-icons/fi';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { reviewApi } from '@/api/user/reviewApi';
 import { TableRowSkeleton } from '@/components/ui/Skeleton';
@@ -332,7 +332,7 @@ const ReviewList = () => {
                             className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
                             title="Phản hồi"
                           >
-                            <FiReply className="w-4 h-4" />
+                            <FiMessageCircle className="w-4 h-4" />
                           </button>
 
                           {/* Delete */}

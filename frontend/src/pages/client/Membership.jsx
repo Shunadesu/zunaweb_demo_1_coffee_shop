@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiStar, FiGift, FiTrendingUp, FiAward, FiCrown } from 'react-icons/fi';
+import { FiStar, FiGift, FiTrendingUp, FiAward, FiZap } from 'react-icons/fi';
 import { useMembershipStore } from '@/stores/membershipStore';
 
 const Membership = () => {
@@ -21,8 +21,8 @@ const Membership = () => {
   const rankIcons = {
     BRONZE: FiStar,
     SILVER: FiAward,
-    GOLD: FiCrown,
-    PLATINUM: FiCrown,
+    GOLD: FiZap,
+    PLATINUM: FiZap,
   };
 
   const rankColors = {
